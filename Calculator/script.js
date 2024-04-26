@@ -3,12 +3,6 @@ function appendValue(value) {
         resultBox.value = "";
         clc = false;
     }
-    if (operation === "=") {
-        dream.textContent = "";
-        resultBox.value = "";
-        operation = "";
-        return;
-    }
     if (resultBox.value === "0") {
         resultBox.value = "";
     }
@@ -60,6 +54,13 @@ function setOperation() {
     }
 }
 
+function changeSign() {
+    if (resultBox.value.charAt(0) === "-") {
+        resultBox.value = resultBox.value.slice(1);
+    } else if (resultBox.value !== "0" && resultBox.value.charAt(0) !== "-") {
+        resultBox.value = "-" + resultBox.value;
+    }
+}
 
 let markings = ["C", "/", "x", "-", "+", "=", "+/-", "."];
 let marking_means = ["clear", "operator", "operator", "operator", "operator", "equals", "reverse", "decimal"];
